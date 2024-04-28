@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="EmployeeInfo">
+        <h1>Employee Information</h1>
+        {% if emp %}
+               <table>
+                <thead>
+                <th>EmployeeName</th>
+                <th>EmployeeSalary</th>
+                <th>EmployeeAddress</th>
+                </thead>
+            {% for e in emp %}
+               <tr>
+                <td>{{e.EmployeeName}}</td>
+                <td>{{e.EmployeeSalary}}</td>
+                <td>{{e.EmployeeAddress}}</td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+        </table>
+    </div>
+    
+</body>
+</html>

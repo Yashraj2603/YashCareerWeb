@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+</head>
+<body>
+    <form method="post" novalidate >
+        {% csrf_token %}
+        <table border="1" style="background-color: burlywood;">
+            {{form.as_table}}<br>
+        </table>
+        <input type="submit" value="submit">
+    </form>
+    {% if messages %}
+       {% for message in messages %}
+           {{message}}
+        {%endfor%}
+    {%endif%}
+</body>
+</html>

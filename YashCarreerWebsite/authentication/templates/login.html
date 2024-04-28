@@ -1,0 +1,22 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+</head>
+<body>
+    <h2>User Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        <table border="1" style="background-color: brown;">
+        {{ form.as_table }}<br>
+        {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+        {% endif %}
+        </table>
+        <button type="submit" name="submit">Login</button>
+    </form>
+</body>
+</html>
