@@ -13,19 +13,22 @@ class Company(models.Model):
     def __str__(self):
         return self.name
 
-
 class Candidates(models.Model):
-    category=(
-        ('Male','male'),
-        ('Female','female'),
-        ('Other','other'),
+    category = (
+        ('Male', 'Male'),
+        ('Female', 'Female'),
+        ('Other', 'Other'),
     )
-    name=models.CharField(max_length=200,null=True)
-    dob=models.DateField(null=True)
-    gender= models.CharField(max_length=200,null=True,choices=category)
-    mobile= models.CharField(max_length=200,null=True)
-    email= models.CharField(max_length=200,null=True)
-    resume=models.FileField(null=True)
-    company=models.ManyToManyField(Company,blank=True)
+    name = models.CharField(max_length=200, null=True)
+    dob = models.DateField(null=True)
+    gender = models.CharField(max_length=200, null=True, choices=category)
+    mobile = models.CharField(max_length=200, null=True)
+    email = models.CharField(max_length=200, null=True)
+    resume = models.FileField(null=True)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, null=True)
+
     def __str__(self):
-        return self.name
+        return  self.name
+
+
+

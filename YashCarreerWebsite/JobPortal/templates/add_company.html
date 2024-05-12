@@ -1,0 +1,23 @@
+<!-- add_company.html -->
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}Add Company{% endblock %}
+
+{% block content %}
+<head>
+    <style>
+        .box {
+            border: 5px solid black;
+        }
+    </style>
+</head>
+<div class="box jumbotron container">
+    <h2>Add Company</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success btn-sm">Submit</button>
+    </form>
+</div>
+{% endblock %}

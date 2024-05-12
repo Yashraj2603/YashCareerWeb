@@ -1,19 +1,40 @@
+<!-- apply.html -->
 {% extends 'main.html' %}
-{% load static%}
+{% load static %}
 
 {% block content %}
 <head>
     <style>
-        .box{
-            border:5px solid black;
+        .box {
+            border: 5px solid black;
         }
     </style>
 </head>
-<div class=" box jumbotron container">
+<div class="box jumbotron container">
+    <h2>Apply to Companies</h2>
+     {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" class="btn btn-success btn-sm" value="submit">
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-success btn-sm" value="Submit">
     </form>
+</div>
+
+<div class="container">
+    <h2>List of Companies</h2>
+    <ul>
+        {% for company in companies %}
+            <li>{{ company.name }}</li>
+            <p>{{ company.description }}</p>
+        {% empty %}
+            <li>No companies available</li>
+        {% endfor %}
+    </ul>
 </div>
 {% endblock %}

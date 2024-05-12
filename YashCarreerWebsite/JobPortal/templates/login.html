@@ -2,14 +2,18 @@
 {% load static %}
 
 {% block content %}
-<div class="maindiv jumbotron container">
-    <!-- Include the navigation bar -->
-    {% include 'navbar.html' %}
-
-    <form method="POST" action="{% url 'login' %}">
+<div class="container">
+    <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-success" type="submit">Login</button>
+        <div class="form-group">
+            <label for="id_username">Username:</label>
+            {{ form.username }}
+        </div>
+        <div class="form-group">
+            <label for="id_password">Password:</label>
+            {{ form.password }}
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
     </form>
     <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
 </div>

@@ -1,16 +1,26 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"0>
-    <title>Yash Career Website</title>
-</head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'site.webmanifest' %}">
+    <title>Yash Career Website</title> 
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <meta name="Description" content="This is a job search website. You have to first login, if you already have an account, else sign up to use the service">
+    <meta name="keywords" content="python developer, web developer, job, recruitment, Data Science, html">
+    <meta name="author" content="Yash Raj">
+</head> 
 <body>
+    <h1>Yash Career Website</h1>
     {% include 'navbar.html' %}
     <br>
-	<br>
-    {%block content%}
+    <br>
+    {% block content %}
     
     {% endblock %}
 </body>

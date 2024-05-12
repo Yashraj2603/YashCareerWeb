@@ -18,6 +18,7 @@
       </div>
       {% if request.user.is_authenticated %}
       <span class="user">Hello, {{request.user}}  &nbsp;</span>
+      <span class="add_company"><a href="{% url 'add_company' %}">Add Job oppurtunity</a></span>
       <span ><a  class="user btn btn-info" href ="{% url 'logout' %}"> Logout</a></span>
       {% else %}
           <span ><a class="user" href="{% url 'login' %}">Login</a></span>>

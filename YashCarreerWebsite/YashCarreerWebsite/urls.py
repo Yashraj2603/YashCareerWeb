@@ -16,10 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/',include("authentication.urls")),
-    path('',include("OrganisationEmployee.urls")),
-    path('jobportal/',include("jobPortal.urls")),
-]
+    path('authent',include("authentication.urls")),
+    path('employee',include("OrganisationEmployee.urls")),
+    path('',include("jobPortal.urls")),
+]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
+

@@ -1,12 +1,12 @@
-from django.forms import ModelForm
-from .models import *
+from django import forms
+from .models import Candidates, Company
 
-class ApplyForm(ModelForm):
+class ApplyForm(forms.ModelForm):
     class Meta:
-        model=Candidates
-        fields="__all__"
+        model = Candidates
+        fields = '__all__'
 
-class CompanyForm(ModelForm):
+class CompanyForm(forms.ModelForm):
     class Meta:
         model = Company
-        fields = "__all__"
+        fields = '__all__'
