@@ -14,7 +14,7 @@
 </head>
 <div class="box jumbotron container">
     <h2>Add Company</h2>
-    <form action="" method="POST">
+    <form action="{% url 'add_company' %}" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="btn btn-success btn-sm">Submit</button>

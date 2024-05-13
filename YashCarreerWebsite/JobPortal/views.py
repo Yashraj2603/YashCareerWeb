@@ -45,22 +45,21 @@ def loginUser(request):
 def logoutUser(request):
     logout(request)
     return redirect('login')  #
-def registerUser(request):
-    if request.user.is_authenticated:
-        return redirect('home')
-    else:
-        Form=UserCreationForm()
-        if request.method=='POST':
-            Form=UserCreationForm(request.POST)
-            if Form.is_valid():
-                currUser=Form.save()
-                Company.objects.create(user=currUser,name=currUser.username)
-                return redirect('login')
-        context={
-            'form':Form
-        }
-        return render(request,'register.html',context)
 
+def registerUser(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            # After user registration, create a corresponding company record
+            Company.objects.create(user=user, name=user.username)
+            # Redirect the user to the login page after successful registration
+            return redirect('login')
+    else:
+        form = UserCreationForm()
+    
+    context = {'form': form}
+    return render(request, 'register.html', context)
 
 def applyPage(request):
     if request.method == 'POST':
